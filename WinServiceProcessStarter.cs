@@ -15,13 +15,13 @@ namespace WindowsServiceWrapper
 {
     public class WinServiceProcessStarter : IHostedService, IDisposable
     {
-        private ILoggerService logger;
-        private IConfigReader configReader;
+        private readonly ILoggerService logger;
+        private readonly IConfigReader configReader;
 
         public WinServiceProcessStarter(ILoggerService logger, IConfigReader configReader)
         {
-            this.logger = logger;
-            this.configReader = configReader;
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            this.configReader = configReader ?? throw new ArgumentNullException(nameof(configReader));
         }
 
         public void Dispose()
@@ -47,7 +47,7 @@ namespace WindowsServiceWrapper
                     process.StartInfo.EnvironmentVariables[item.Key] = item.Value;
             }
 
-            process.StartInfo.Arguments = configReader.GetValue("StartupFile");
+            process.StartInfo.Arguments = FindMainJsFile(configReader.GetValue("StartupFile"));
 
             logger.LogInfo($"Process arguments: {process.StartInfo.Arguments}");
 
