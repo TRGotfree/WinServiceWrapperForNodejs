@@ -1,0 +1,28 @@
+{
+  "profiles": {
+    "WindowsServiceWrapper": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "NODE_ENV": "development",
+        "MODEM_PORT": "COM8",
+        "HOST_NAME": "localhost",
+        "VIRTUAL_HOST": "/",
+        "PORT": "5672",
+        "USER_NAME": "admin",
+        "PASSWORD": "12345",
+        "INCOMING_SMS_EXCHANGE_NAME": "incoming_sms",
+        "INCOMING_SMS_QUEUE_NAME": "incoming_sms_requests_queue",
+        "INCOMING_SMS_ROUTING_KEY": "",
+        "OUTCOMING_SMS_EXCHANGE_NAME": "outcoming_sms",
+        "OUTCOMING_SMS_QUEUE_NAME": "outcoming_sms_requests_queue",
+        "OUTCOMING_SMS_ROUTING_KEY": "",
+        "INCOMING_SMS_EXCHANGE_TYPE": "fanout",
+        "OUTCOMING_SMS_EXCHANGE_TYPE": "fanout",
+        "INFO_LOG": "C:\\Projects\\ProjectReleases\\Logs\\log_info.log",
+        "ERROR_LOG": "C:\\Projects\\ProjectReleases\\Logs\\log_error.log",
+        "NLOG_CONFIG_FILE": "C:\\Projects\\NLogConfig\\NLog.config",
+        "NLOG_LOGS_PATH": "C:\\Projects\\Logs\\"
+      }
+    }
+  }
+}
